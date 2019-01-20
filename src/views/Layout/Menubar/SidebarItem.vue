@@ -115,11 +115,6 @@ export default {
       } else {
         this.openArr.splice(isExist, 1);
       }
-      // if (this.isOpen === index) {
-      //   this.isOpen = -1;
-      // } else {
-      //   this.isOpen = index;
-      // }
     },
     isOpen(index) {
       if (!this.openArr.includes(index)) {
