@@ -167,6 +167,68 @@ export const constantRouterMap = [
     ],
   },
   {
+    path: '/nested2',
+    component: Layout,
+    name: 'nested2',
+    redirect: '/nested2/test',
+    meta: { title: 'nested2', icon: 'dashboard' },
+    children: [
+      {
+        path: 'menu1',
+        component: () => import('@/views/nested2/menu1/index'),
+        name: 'menu1',
+        meta: { title: 'menu1' },
+        children: [
+          {
+            path: 'menu1-1',
+            component: () => import('@/views/nested2/menu1/menu1-1/index'),
+            name: 'menu1-1',
+            meta: { title: 'Amenu1-1' },
+          },
+          {
+            path: 'menu1-2',
+            component: () => import('@/views/nested2/menu1/menu1-2'),
+            name: 'menu1-2',
+            meta: { title: 'Amenu1-2' },
+            children: [
+              {
+                path: 'menu1-2-1',
+                component: () => import('@/views/nested2/menu1/menu1-2/menu1-2-1'),
+                name: 'menu1-2-1',
+                meta: { title: 'Amenu1-2-1' },
+              },
+              {
+                path: 'menu1-2-2',
+                component: () => import('@/views/nested2/menu1/menu1-2/menu1-2-2'),
+                name: 'menu1-2-2',
+                meta: { title: 'Amenu1-2-2' },
+              },
+              {
+                path: 'edit',
+                component: () => import('@/views/nested2/menu1/menu1-2/edit'),
+                name: 'edit',
+                meta: { title: 'edit', extends: 'Amenu1-2-2' },
+                hidden: true,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: 'menu2',
+        component: () => import('@/views/nested2/menu2/index'),
+        name: 'menu2',
+        meta: { title: 'Amenu2' },
+      },
+      {
+        path: 'test',
+        component: () => import('@/views/nested2/test/index'),
+        name: 'test',
+        meta: { title: 'Atest' },
+      },
+    ],
+  },
+  {
     path: '/search',
     component: Layout,
     redirect: '/search/index',

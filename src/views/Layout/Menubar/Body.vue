@@ -3,7 +3,7 @@
   <div class="site-menubar-body">
     <div>
       <div>
-        <SidebarItem :list="list"/>
+        <SidebarItem :list="list" :unique-opened="false"/>
       </div>
     </div>
   </div>

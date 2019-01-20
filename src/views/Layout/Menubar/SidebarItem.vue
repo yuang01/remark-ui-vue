@@ -4,7 +4,7 @@
       <li v-if="item.category" class="site-menu-category" :key="`${index}category`">{{item.category}}</li>
       <li class="site-menu-item"
       :key="`${basePath}${index}`"
-      :class="{'active': isActive(item), 'open': isOpen === index && hasChild(item)}"
+      :class="{'active': isActive(item), 'open': isOpen(index) && hasChild(item)}"
       @click.stop="clickLink(item, index)">
         <router-link :to="toPath(item)">
           <i v-if="basePath === ''" :class="`site-menu-icon wb-${showLabel(item, 'icon')}`"></i>
@@ -35,10 +35,14 @@ export default {
       type: String,
       default: '',
     },
+    uniqueOpened: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
-      isOpen: -1,
+      openArr: [],
     };
   },
   watch: {
@@ -102,11 +106,26 @@ export default {
       return item.children && item.children.length > 1;
     },
     clickLink(item, index) {
-      if (this.isOpen === index) {
-        this.isOpen = -1;
-      } else {
-        this.isOpen = index;
+      const isExist = this.openArr.indexOf(index);
+      if (this.uniqueOpened === true) {
+        this.openArr = [];
       }
+      if (isExist === -1) {
+        this.openArr.push(index);
+      } else {
+        this.openArr.splice(isExist, 1);
+      }
+      // if (this.isOpen === index) {
+      //   this.isOpen = -1;
+      // } else {
+      //   this.isOpen = index;
+      // }
+    },
+    isOpen(index) {
+      if (!this.openArr.includes(index)) {
+        return false;
+      }
+      return true;
     },
     isActive(item) {
       return this.toPath(item) === this.$route.path || item.path === this.$route.meta.extends;
@@ -114,8 +133,12 @@ export default {
     initOpen() {
       this.list.forEach((item, index) => {
         const routePath = this.resole(item.path);
-        if (this.$route.path.includes(`${this.basePath}/${routePath}`)) {
-          this.isOpen = index;
+        if (this.$route.path.includes(`${this.basePath}/${routePath}`) && this.openArr.indexOf(index) === -1) {
+          if (this.uniqueOpened === true) {
+            this.openArr = [];
+          }
+          this.openArr.push(index);
+          console.log(this.openArr, 'created');
         }
       });
     },
