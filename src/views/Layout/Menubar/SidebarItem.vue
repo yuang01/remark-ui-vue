@@ -133,7 +133,6 @@ export default {
             this.openArr = [];
           }
           this.openArr.push(index);
-          console.log(this.openArr, 'created');
         }
       });
     },
