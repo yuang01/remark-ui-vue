@@ -1,28 +1,30 @@
 <template>
-    <div class="nav-tabs-horizontal bg-blue-grey-100" data-plugin="tabs">
-      <el-scrollbar style="width:100%;height:100%;" ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
-        <ul class="nav nav-tabs nav-tabs-line">
-          <template v-for="(item, index) in list">
-            <li class="nav-item" role="presentation" :key="index" @click="moveToCurrentTag()" @contextmenu.prevent="openMenu($event, item, index)">
-              <router-link ref="tag" class="nav-link tab-a"  :class="{'active': $route.fullPath === item.path}" :to="item.path">
-                <span class="close animation-scale-up animation-duration-100" @click.stop.prevent="closeTab(index, item.path)">x</span>
-                <strong>{{item.title}}</strong>
-              </router-link>
-            </li>
-          </template>
-        </ul>
+  <div class="nav-tabs-horizontal bg-blue-grey-100" data-plugin="tabs">
+    
+    <ul class="nav nav-tabs nav-tabs-line">
+      <el-scrollbar style="height:100%;" ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
+        <template v-for="(item, index) in list">
+          <li class="nav-item" role="presentation" :key="index" @click="moveToCurrentTag()" @contextmenu.prevent="openMenu($event, item, index)">
+            <router-link ref="tag" class="nav-link tab-a"  :class="{'active': $route.fullPath === item.path}" :to="item.path">
+              <span class="close animation-scale-up animation-duration-100" @click.stop.prevent="closeTab(index, item.path)">x</span>
+              <strong>{{item.title}}</strong>
+            </router-link>
+          </li>
+        </template>
       </el-scrollbar>
-      <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
-        <li @click="menuCloseTab()">关闭</li>
-        <li @click="closeOthers()">关闭其他</li>
-        <li @click="closeAll()">关闭所有</li>
-      </ul>
-    </div>
+    </ul>
+    
+    <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
+      <li @click="menuCloseTab()">关闭</li>
+      <li @click="closeOthers()">关闭其他</li>
+      <li @click="closeAll()">关闭所有</li>
+    </ul>
+  </div>
 </template>
 
 <script>
 /* eslint-disable */
-const padding = 15
+const padding = 130
 export default {
   computed: {
   },
@@ -98,20 +100,19 @@ export default {
     closeAll() {
       this.list = [];
       this.$router.push('/');
+      this.addTab();
     },
     closeTab(index, path) {
-      if (this.list.length !== 1) {
-        if (path === this.$route.fullPath && index + 1 === this.list.length) {
-          const curPath = this.list[index - 1].path;
-          this.$router.push(curPath);
-          this.list.splice(index, 1);
-        } else if (path === this.$route.fullPath && index + 1 !== this.list.length) {
-          const curPath = this.list[index + 1].path;
-          this.$router.push(curPath);
-          this.list.splice(index, 1);
-        } else {
-          this.list.splice(index, 1);
-        }
+      if (path === this.$route.fullPath && index + 1 === this.list.length && this.list.length !== 1) {
+        const curPath = this.list[index - 1].path;
+        this.$router.push(curPath);
+        this.list.splice(index, 1);
+      } else if (path === this.$route.fullPath && index + 1 !== this.list.length) {
+        const curPath = this.list[index + 1].path;
+        this.$router.push(curPath);
+        this.list.splice(index, 1);
+      } else {
+        this.list.splice(index, 1);
       }
     },
     openMenu(e, tab, index) {
@@ -132,20 +133,25 @@ export default {
 };
 </script>
 <style>
-.nav-tabs-horizontal .el-scrollbar__wrap {
-  overflow-x: visible!important;
+.nav-tabs .el-scrollbar__bar.is-vertical {
+  display: none;
 }
 </style>
 
 <style scoped lang="scss">
+.nav-tabs-horizontal {
+  height: 44px;
+  box-sizing: border-box;
+}
 .nav {
   height: 44px;
   padding: 0;
   margin: 0;
   display: inline-block;
+  position: relative;
   white-space: nowrap;
   .nav-item {
-    height: 40px;
+    height: 44px;
     display: inline-block;
     a {
       font-size: 14px;
@@ -188,8 +194,5 @@ export default {
       background: #eee;
     }
   }
-}
-.el-scrollbar__wrap {
-  overflow-y: hidden;
 }
 </style>

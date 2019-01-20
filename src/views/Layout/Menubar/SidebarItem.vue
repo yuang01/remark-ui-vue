@@ -1,6 +1,6 @@
 <template>
   <ul class="site-menu" :class="{'site-menu-sub': basePath !== ''}">
-    <template v-for="(item, index) in list" v-if="!item.hidden">
+    <template v-for="(item, index) in list" v-if="isShow(item)">
       <li v-if="item.category" class="site-menu-category" :key="`${index}category`">{{item.category}}</li>
       <li class="site-menu-item"
       :key="`${basePath}${index}`"
@@ -47,6 +47,17 @@ export default {
     },
   },
   methods: {
+    // 是否显示
+    isShow(item) {
+      if (item.hidden === true) {
+        return false;
+      } else if (this.basePath === '') {
+        if (!item.children) {
+          return false;
+        }
+      }
+      return true;
+    },
     showLabel(item, name) {
       window[name] = '';
       if (item.children) {

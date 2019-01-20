@@ -1,4 +1,3 @@
-// import { verifyToken } from '@/api/ciq';
 
 import Vue from 'vue';
 import Router from 'vue-router';
@@ -8,13 +7,13 @@ import Meta from 'vue-meta';
 import Layout from '@/views/Layout/Layout';
 
 const Login = () => import('@/views/Login/Login');
-const Dashboard = () => import('@/views/Dashboard/index'); // 整体概览
-const ExpertViews = () => import('@/views/ExpertViews/index'); // 专家视点
-const Hotspots = () => import('@/views/Hotspots/index'); // 质监热点
-const RiskNews = () => import('@/views/RiskNews/index'); // 风险快讯
-const SamplingInfo = () => import('@/views/SamplingInfo/index'); // 风险快讯
-const BusinessInfo = () => import('@/views/BusinessInfo/index'); // 业务信息
-const Search = () => import('@/views/Search/index'); // 全文检索
+const Dashboard = () => import('@/views/Dashboard/index');
+const advancedUi = () => import('@/views/advancedUi/index');
+const basicUi = () => import('@/views/basicUi/index');
+const structure = () => import('@/views/structure/index');
+const widgets = () => import('@/views/widgets/index');
+const forms = () => import('@/views/forms/index');
+const Search = () => import('@/views/Search/index');
 
 Vue.use(Router);
 Vue.use(Meta);
@@ -24,7 +23,7 @@ export const constantRouterMap = [
   {
     path: '/login',
     component: Login,
-    hidden: true,
+    // hidden: true,
   },
   {
     path: '',
@@ -41,67 +40,67 @@ export const constantRouterMap = [
     ],
   },
   {
-    path: '/hotspots',
+    path: '/basicUi',
     component: Layout,
-    redirect: '/hotspots/index',
+    redirect: '/basicUi/index',
     children: [
       {
         path: 'index',
-        component: Hotspots,
-        name: 'Hotspots',
-        meta: { icon: 'inbox', title: '热点信息' },
+        component: basicUi,
+        name: 'basicUi',
+        meta: { icon: 'inbox', title: 'Basic UI' },
       },
     ],
   },
   {
-    path: '/expertviews',
+    path: '/advancedUi',
     component: Layout,
-    redirect: '/expertviews/index',
+    redirect: '/advancedUi/index',
     children: [
       {
         path: 'index',
-        component: ExpertViews,
-        name: 'ExpertViews',
-        meta: { icon: 'user', title: '专家视点' },
+        component: advancedUi,
+        name: 'advancedUi',
+        meta: { icon: 'user', title: 'Advanced UI' },
       },
     ],
   },
   {
-    path: '/risknews',
+    path: '/structure',
     component: Layout,
-    redirect: '/risknews/index',
+    redirect: '/structure/index',
     children: [
       {
         path: 'index',
-        component: RiskNews,
-        name: 'RiskNews',
-        meta: { icon: 'library', title: '风险快讯' },
+        component: structure,
+        name: 'structure',
+        meta: { icon: 'library', title: 'structure' },
       },
     ],
   },
   {
-    path: '/samplinginfo',
+    path: '/widgets',
     component: Layout,
-    redirect: '/samplinginfo/index',
+    redirect: '/widgets/index',
     children: [
       {
         path: 'index',
-        component: SamplingInfo,
-        name: 'SamplingInfo',
-        meta: { icon: 'hammer', title: '抽检信息' },
+        component: widgets,
+        name: 'widgets',
+        meta: { icon: 'hammer', title: 'widgets' },
       },
     ],
   },
   {
-    path: '/businessinfo',
+    path: '/forms',
     component: Layout,
-    redirect: '/businessinfo/index',
+    redirect: '/forms/index',
     children: [
       {
         path: 'index',
-        component: BusinessInfo,
-        name: 'BusinessInfo',
-        meta: { title: '业务信息', icon: 'list-bulleted' },
+        component: forms,
+        name: 'forms',
+        meta: { title: 'forms', icon: 'list-bulleted' },
       },
     ],
   },
@@ -187,40 +186,13 @@ const router = new Router({
   scrollBehavior: () => ({ y: 0 }),
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
   NProgress.configure({
     template: "<div class='bar nprogress-bar-primary nprogress-bar-header' role='bar'><div class='peg'></div></div><div class='spinner' role='spinner'><div class='spinner-icon'></div></div>",
     minimum: 0.4,
   });
   NProgress.start();
   next();
-  // if (to.matched.some(record => record.meta.requiresAuth)) {
-  //   // this route requires auth, check if logged in
-  //   // if not, redirect to login page.
-  //   const token = localStorage.getItem('token');
-
-  //   if (token) { // 如果 token 存在
-  //     const payload = token.split('.')[1]; // 取出token第二个分段
-  //     const payloadDict = new Buffer(payload, 'base64').toString(); // 然后解析
-  //     const overdueTime = JSON.parse(payloadDict).exp * 1000; // 提取exp（过期时间）
-  //     const curTime = new Date().getTime(); // 获取当前时间
-  //     if (curTime <= overdueTime) { // 如果当前时间小于过期时间，就是允许的
-  //       next();
-  //     } else { // 如果当前时间大于过期时间，强制登录
-  //       next({
-  //         path: '/login',
-  //         query: { redirect: to.fullPath },
-  //       });
-  //     }
-  //   } else { // 如果 token 不存在，强制登录
-  //     next({
-  //       path: '/login',
-  //       query: { redirect: to.fullPath },
-  //     });
-  //   }
-  // } else {
-  //   next(); // 确保一定要调用 next()
-  // }
 });
 
 router.afterEach(() => {
