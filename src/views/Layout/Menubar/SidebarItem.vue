@@ -19,7 +19,7 @@
         </template>
       </li>
     </template>
-  </ul>
+  </ul> 
 </template>
 
 <script>
