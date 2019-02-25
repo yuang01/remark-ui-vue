@@ -3,3 +3,10 @@
 </template>
 
 <script>
+export default {
+  metaInfo: {
+    title: 'advancedUI',
+  },
+};
+</script>
+
