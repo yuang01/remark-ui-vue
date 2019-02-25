@@ -32,7 +32,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 基于<a href="https://getbootstrapadmin.com/remark/base/index.html">remark UI</a>的样式，使用vue.js编写了左侧导航栏（侧边栏）和tab切换页面功能。
 <!-- more -->
 # 效果总览
-![效果总览](/images/remark.gif)
+![效果总览](https://github.com/yuang01/myblog/blob/yuangboy/source/images/remark.gif)
 # 左侧导航栏
 > 代码地址(侧边栏)
 https://github.com/yuang01/remark-ui-vue/blob/master/src/views/Layout/Menubar/SidebarItem.vue
