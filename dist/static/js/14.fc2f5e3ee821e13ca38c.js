@@ -1,0 +1,2 @@
+webpackJsonp([14],{I6fI:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n("nn/b"),s=n("kVLX"),a=n("VU/8"),r=a(i.a,s.a,!1,null,null,null);t.default=r.exports},kVLX:function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",[e._v("this is basic UI")])},s=[],a={render:i,staticRenderFns:s};t.a=a},"nn/b":function(e,t,n){"use strict";t.a={metaInfo:{title:"BasicUi"}}}});
+//# sourceMappingURL=14.fc2f5e3ee821e13ca38c.js.map

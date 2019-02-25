@@ -1,0 +1,2 @@
+webpackJsonp([16],{"+6SB":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a=n("Dw+a"),r=n("Bk0G"),s=n("VU/8"),c=s(a.a,r.a,!1,null,null,null);t.default=c.exports},Bk0G:function(e,t,n){"use strict";var a=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",[e._v("this is serach")])},r=[],s={render:a,staticRenderFns:r};t.a=s},"Dw+a":function(e,t,n){"use strict";t.a={metaInfo:{title:"search"}}}});
+//# sourceMappingURL=16.d0d10bf1c6a1b5d0eec7.js.map

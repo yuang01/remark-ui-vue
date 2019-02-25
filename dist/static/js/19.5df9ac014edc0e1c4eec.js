@@ -1,0 +1,2 @@
+webpackJsonp([19],{bcrP:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r=t("vWpn"),u=t("VU/8"),l=u(null,r.a,!1,null,null,null);n.default=l.exports},vWpn:function(e,n,t){"use strict";var r=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("router-view")],1)},u=[],l={render:r,staticRenderFns:u};n.a=l}});
+//# sourceMappingURL=19.5df9ac014edc0e1c4eec.js.map

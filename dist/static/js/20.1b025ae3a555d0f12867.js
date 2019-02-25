@@ -1,0 +1,2 @@
+webpackJsonp([20],{"5CVY":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n("dgYD"),l=n("VU/8"),s=l(null,r.a,!1,null,null,null);t.default=s.exports},dgYD:function(e,t,n){"use strict";var r=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",[e._v("this is edit page")])},l=[],s={render:r,staticRenderFns:l};t.a=s}});
+//# sourceMappingURL=20.1b025ae3a555d0f12867.js.map

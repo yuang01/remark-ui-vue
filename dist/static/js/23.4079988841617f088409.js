@@ -1,0 +1,2 @@
+webpackJsonp([23],{WFmp:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n("xO/j"),l=n("VU/8"),s=l(null,r.a,!1,null,null,null);t.default=s.exports},"xO/j":function(e,t,n){"use strict";var r=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",[e._v("this is edit page")])},l=[],s={render:r,staticRenderFns:l};t.a=s}});
+//# sourceMappingURL=23.4079988841617f088409.js.map
