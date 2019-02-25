@@ -87,7 +87,7 @@ https://github.com/yuang01/remark-ui-vue/blob/master/src/views/Layout/Tabbar/Tab
 #### hidden
 当设置 true 的时候该路由不会在侧边栏出现
 #### category
-侧边栏的类别，如果侧边栏进行分类的话可以使用category，定义哪个路由中，变显示在哪个路由的上方。如这样定义
+侧边栏的类别，如果侧边栏进行分类的话可以使用category，定义在哪个路由中，便显示在哪个路由的上方。如这样定义
 ``` javascript
 {
   path: '',
