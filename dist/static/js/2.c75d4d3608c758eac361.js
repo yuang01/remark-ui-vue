@@ -1,0 +1,2 @@
+webpackJsonp([2],{jsl9:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n("vd5/"),s=n("lfzX"),u=n("VU/8"),l=u(r.a,s.a,!1,null,null,null);e.default=l.exports},lfzX:function(t,e,n){"use strict";var r=function(){var t=this,e=t.$createElement;return(t._self._c||e)("div",[t._v("this is structure")])},s=[],u={render:r,staticRenderFns:s};e.a=u},"vd5/":function(t,e,n){"use strict";e.a={metaInfo:{title:"structure"}}}});
+//# sourceMappingURL=2.c75d4d3608c758eac361.js.map
