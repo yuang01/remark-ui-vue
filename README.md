@@ -100,7 +100,7 @@ https://github.com/yuang01/remark-ui-vue/blob/master/src/views/Layout/Tabbar/Tab
 },
 ```
 category是这样显示的
-![category](/images/remark01.png)
+![category](https://github.com/yuang01/myblog/blob/yuangboy/source/images/remark01.png)
 #### meta
 当只显示根目录的时候（children的length为1），可以在children之外和在children里面写
 ``` javascript
