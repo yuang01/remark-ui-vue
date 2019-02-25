@@ -4,7 +4,7 @@
     <li class="nav-item dropdown">
       <a class="nav-link navbar-avatar" @click="active.user = !active.user" @blur="active.user = false" href="javascript:;" data-animation="scale-up">
         <span class="avatar avatar-online">
-          <img src="" alt="...">
+          <img src="~@/assets/images/21.png" alt="...">
           <i></i>
         </span>
       </a>

@@ -4,7 +4,8 @@
     <div class="page-content">
       <div class="page-brand-info">
         <div class="brand">
-          <img class="brand-img" src="~@/assets/images/login.png" srcset="~@/assets/images/login@2x.png 2x" alt="...">
+          <!-- 这里显示登录界面左侧的图片，图聘现实系统名称或其他 -->
+          <!-- <img class="brand-img" src="" srcset="~@/assets/images/login@2x.png 2x" alt="..."> -->
         </div>
       </div>
       <div class="page-login-main animation-slide-right animation-duration-1" ref="pageForm">
