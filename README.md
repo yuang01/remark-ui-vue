@@ -29,7 +29,7 @@ npm test
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 # 前言 
-基于<a href="https://getbootstrapadmin.com/remark/base/index.html">remark UI</a>的样式，使用vue.js编写了左侧导航栏（侧边栏）和tab切换页面功能。
+基于<a href="https://getbootstrapadmin.com/remark/base/index.html" target="_blank">remark UI</a>的样式，使用vue.js编写了左侧导航栏（侧边栏）和tab切换页面功能。
 <!-- more -->
 # 效果总览
 在线预览：<a href="https://yuang01.github.io/remark-ui-vue/dist/#/dashboard" target="_blank">点这里</a>
